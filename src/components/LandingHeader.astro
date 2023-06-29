@@ -13,7 +13,7 @@ import Logo from "./Logo.astro";
 
   <nav>
     <ul
-      class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+      class="text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 hidden lg:flex "
     >
       <li><a href="#model-s">Model S</a></li>
       <li><a href="#model-3">Model 3</a></li>
@@ -25,13 +25,34 @@ import Logo from "./Logo.astro";
     </ul>
   </nav>
 
-  <nav class="flex flex-grow justify-end basis-0">
+  <nav class="flex flex-grow justify-end basis-0 ">
     <ul
-      class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+      class="text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 hidden lg:flex "
     >
       <li><a href="#">Shop</a></li>
       <li><a href="#">Account</a></li>
       <li><a href="#">Menú</a></li>
+    </ul>
+  </nav>
+
+  <span id='burger-menu' class="text-sm rounded px-4 py-2 cursor-pointer bg-white/5 backdrop-blur-sm inline-block lg:hidden">Menu</span>
+
+  <nav id='burger-nav' class="hidden absolute top-0 right-0 px-12 py-4 w-80 bg-white text-black text-sm h-screen overflow-scroll shadow-[0_0_0_100vmax_rgba(0,0,0,0.7)] transition-all duration-1000">
+    <span id='close-burger' class="text-slate-700 py-8 flex justify-end w-full text-xl cursor-pointer ">X</span>
+    <ul class="flex flex-col gap-6 ">
+      <li><a href="#">Model S</a></li>
+      <li><a href="#">Model 3</a></li>
+      <li><a href="#">Model X</a></li>
+      <li><a href="#">Model Y</a></li>
+      <li><a href="#">Solar Roof</a></li>
+      <li><a href="#">Powerwall</a></li>
+      <li><a href="#">Existing Inventory</a></li>
+      <li><a href="#">Used Inventory</a></li>
+      <li><a href="#">Trade-In</a></li>
+      <li><a href="#">Demo Drive</a></li>
+      <li><a href="#">Insurance</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Account</a></li>
     </ul>
   </nav>
 
@@ -49,6 +70,25 @@ import Logo from "./Logo.astro";
   >
   </div>
 </header>
+
+<script>
+const menu = document.querySelector('#burger-menu')
+const burgerNav = document.querySelector('#burger-nav')
+const close = document.querySelector('#close-burger')
+
+
+menu.addEventListener('click', () => {
+  menu.classList.toggle('hidden')
+  burgerNav.classList.toggle('hidden')
+})
+
+close.addEventListener('click', () => {
+  burgerNav.classList.toggle('hidden')
+  menu.classList.toggle('hidden')
+})
+
+
+</script>
 
 <script>
   const listItem = document.querySelectorAll("#landing-header li")
